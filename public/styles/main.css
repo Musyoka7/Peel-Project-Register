@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;             /* Ensure the body takes up the full height of the viewport */
+}
+.container{
+    text-align: center;
+    margin: 0;
+   
+    
+   
+   
+}
+/*Header*/
+.main-header{
+    font-size: 3rem;
+    background-color: #338AFF;
+    vertical-align: middle;
+    margin-bottom: 50px;
+    
+  
+}
+.header-img{
+    height: 100px;
+    width: 100px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+.header-link{
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+ 
+}
+.header-text{
+    vertical-align: middle;
+    
+}
+/*Form*/
+.form{
+    align-items: center;
+    
+}
+
+.intro-text{
+    font-weight: bold;
+    font-size: large;
+    font-family: 'Mulish', sans-serif;
+}
