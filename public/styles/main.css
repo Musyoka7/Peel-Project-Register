@@ -1,20 +1,19 @@
-html, body {
+html, body {/* Ensure the body takes up the full height of the viewport */
     margin: 0;
     padding: 0;
-    height: 100%;             /* Ensure the body takes up the full height of the viewport */
+    height: 100%;
+    background-color: #FCA311;             
 }
 .container{
     text-align: center;
     margin: 0;
-   
     
-   
-   
 }
 /*Header*/
 .main-header{
     font-size: 3rem;
-    background-color: #338AFF;
+    /*background-color: #338AFF; */
+    background-color: #1E96FC;
     vertical-align: middle;
     margin-bottom: 50px;
     
@@ -36,7 +35,7 @@ html, body {
     vertical-align: middle;
     
 }
-/*Form*/
+/*Form in index.ejx */
 .form{
     align-items: center;
     
@@ -45,5 +44,19 @@ html, body {
 .intro-text{
     font-weight: bold;
     font-size: large;
+    font-family: 'Mulish', sans-serif;
+}
+.counter-btn {
+    text-decoration: none;
+    font-size: 3rem;
+    margin-top: 30px;
+    color: black;
+    font-family: 'Mulish', sans-serif;
+}
+input{
+    width: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
     font-family: 'Mulish', sans-serif;
 }
