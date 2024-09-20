@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <%- include("partials/header") %>
-        <p class="intro-text">hi, welcome to today's Peel tiger session, please search for your name to mark yourself as present.</p>
+        <p class="intro-text"><span class="hi-text">hi</span>, welcome to today's Peel tiger session, please search for your name to mark yourself as present.</p>
 
         <form class="form" action="/search" method="post">
             <input type="text" name="entry" placeholder="Please enter name" >
@@ -21,7 +21,7 @@
             </button>
         </form>
 
-        <a href="#" class="counter-btn">Players present: 0 %></a>
+        <a href="" class="counter-btn">Players present: 0 %></a>
 
 
      <% if(locals.data) %>

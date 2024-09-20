@@ -9,6 +9,9 @@ html, body {/* Ensure the body takes up the full height of the viewport */
     margin: 0;
     
 }
+.hi-text{
+    font-size: 3rem;
+}
 /*Header*/
 .main-header{
     font-size: 3rem;
@@ -16,20 +19,29 @@ html, body {/* Ensure the body takes up the full height of the viewport */
     background-color: #1E96FC;
     vertical-align: middle;
     margin-bottom: 50px;
-    
+    align-items: center;
+    justify-content: space-between;
+   
+   
   
+   
+  
+}
+.header-link{
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    letter-spacing: -2px;
+    font-family: "Syncopate", sans-serif;
+ 
 }
 .header-img{
     height: 100px;
     width: 100px;
     margin: 0 10px;
     vertical-align: middle;
-}
-.header-link{
-    align-items: center;
-    text-decoration: none;
-    display: inline-block;
- 
 }
 .header-text{
     vertical-align: middle;
@@ -43,7 +55,7 @@ html, body {/* Ensure the body takes up the full height of the viewport */
 
 .intro-text{
     font-weight: bold;
-    font-size: large;
+    font-size: 2rem;
     font-family: 'Mulish', sans-serif;
 }
 .counter-btn {
@@ -59,4 +71,21 @@ input{
     margin-bottom: 20px;
     border: 1px solid #ddd;
     font-family: 'Mulish', sans-serif;
+    border-radius: 5px;
+}
+.submit-button{
+    border-radius: 10px;
+    margin-left: 0;
+    color: black;
+    
+}
+.submit-button :hover{
+    color: white;
+}
+.counter-btn{
+    color: white;
+    
+}
+.counter-btn a:hover{
+    color: black;
 }
