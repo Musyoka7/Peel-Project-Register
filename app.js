@@ -35,8 +35,9 @@ app.use(express.static("public"));
 
 app.get("/", async(req,res) => {
     try {
-        const result = await db.query("SELECT COUNT(*) FROM players WHERE is_present = true");
+        const result = await db.query("SELECT COUNT(*) AS present_count FROM players WHERE is_present = TRUE");
         const count = result.rows[0].present_count;
+        console.log("Present Count:", count);
         res.render("index.ejs", {
             count: count
         })
