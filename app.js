@@ -8,9 +8,9 @@ const port = 3000;
 const db = new pg.Pool({
     user: "postgres",
     host: "localhost",
-    database: "**",
+    database: "tiger_trust_register",
     password: "Shaggypet2015",
-    port: 5432
+    port: 5433
 });
 
 const players = [
@@ -37,14 +37,34 @@ app.get("/", (req,res) => {
     res.render("index.ejs",{
     });
 })
-app.post("/search", (req,res) => {
-    const name = req.body;
-    if(players.includes(name))
-    {
-        res.render("index.ejs", {
-            data: players
-        })
+db.query('SELECT 1', (err, res) => {
+    if (err) {
+        console.error('Error connecting to the database:', err);
+    } else {
+        console.log('Database connection successful');
     }
+});
+
+app.post("/search", async (req,res) => {
+    const {entry} = req.body;
+    const names = entry.trim().split(" "); // removing the blank spaces infront and behind the word then splitting them by a space 
+    const first_name = names[0]; // assiging the first element in the names array to first_name
+    const last_name = names.slice(1).join(" "); // this combines the remaining parts of the name into one name to handle difficult last names
+    console.log(first_name, last_name);
+    try {
+        //note that when searching data base for name use TRIM to ensure there are not blank spaces infront or behind the word
+        const result = await db.query("SELECT * FROM players WHERE TRIM(first_name) = $1 AND TRIM(last_name) = $2", [first_name,last_name]);
+        if(result.rows.length > 0 ){
+            res.send("Player marked as present");
+        }else{
+            res.status(404).send("Player not found in register");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error finding name in the register")
+        
+    }
+    
 })
 
 app.listen(port, () =>{
