@@ -33,7 +33,16 @@ const players = [
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.get("/", (req,res) => {
+app.get("/", async(req,res) => {
+    try {
+        const result = await db.query("SELECT COUNT(*) FROM players WHERE is_present = true");
+        const count = result.rows[0].present_count;
+        res.render("index.ejs", {
+            count: count
+        })
+    } catch (error) {
+        
+    }
     res.render("index.ejs",{
     });
 })
@@ -55,6 +64,7 @@ app.post("/search", async (req,res) => {
         //note that when searching data base for name use TRIM to ensure there are not blank spaces infront or behind the word
         const result = await db.query("SELECT * FROM players WHERE TRIM(first_name) = $1 AND TRIM(last_name) = $2", [first_name,last_name]);
         if(result.rows.length > 0 ){
+            await db.query("UPDATE players SET is_present = TRUE WHERE TRIM(first_name) = $1 AND TRIM(last_name) = $2", [first_name,last_name]);
             res.send("Player marked as present");
         }else{
             res.status(404).send("Player not found in register");
@@ -65,6 +75,18 @@ app.post("/search", async (req,res) => {
         
     }
     
+})
+app.get("/present", async (req,res) => {
+    try {
+        const result = await db.query("SELECT FROM players WHERE is_present = TRUE");
+        res.render("present.ejs", {
+            players: result.rows
+        })
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error retriving present players");
+        
+    }
 })
 
 app.listen(port, () =>{

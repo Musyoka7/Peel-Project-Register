@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>present Players</title>
+</head>
+<body>
+    <h1>Players present</h1>
+    <ul>
+        <% players.forEach(player => { %>
+            <li><%= player.first_name%> <%= player.last_name %></li>
+       <% }) %>
+        <li> </li>
+    </ul>
+</body>
+</html>
