@@ -1,33 +1,47 @@
-html, body {/* Ensure the body takes up the full height of the viewport */
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #FCA311;             
+    background-color: #FCA311;
+   
 }
-.container{
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between ; /* Space out elements */
+    align-items: center; /* Center elements horizontally */
+    min-height: 100vh; /* Make the container take full viewport height */
     text-align: center;
-    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
     
+
 }
-.hi-text{
+
+.hi-text {
     font-size: 3rem;
 }
-/*Header*/
-.main-header{
+
+/* Header */
+.main-header {
     font-size: 3rem;
-    /*background-color: #338AFF; */
     background-color: #1E96FC;
     vertical-align: middle;
-    margin-bottom: 50px;
+    
     align-items: center;
     justify-content: space-between;
-   
-   
-  
-   
-  
+    width: 100vw;
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0;
 }
-.header-link{
+.header-link, .header-text, .header-img {
+    margin: 0; /* Remove any extra spacing */
+}
+
+.header-link {
     align-items: center;
     text-decoration: none;
     display: inline-block;
@@ -35,38 +49,32 @@ html, body {/* Ensure the body takes up the full height of the viewport */
     font-weight: 700;
     letter-spacing: -2px;
     font-family: "Syncopate", sans-serif;
- 
+    width: 100%;
 }
-.header-img{
+
+.header-img {
     height: 100px;
     width: 100px;
     margin: 0 10px;
     vertical-align: middle;
 }
-.header-text{
+
+.header-text {
     vertical-align: middle;
-    
-}
-/*Form in index.ejx */
-.form{
-    align-items: center;
-    
-    
 }
 
-.intro-text{
+/* Form in index.ejs */
+.form {
+    align-items: center;
+}
+
+.intro-text {
     font-weight: bold;
     font-size: 2rem;
     font-family: 'Mulish', sans-serif;
 }
-.counter-btn {
-    text-decoration: none;
-    font-size: 3rem;
-    margin-top: 30px;
-    color: black;
-    font-family: 'Mulish', sans-serif;
-}
-input{
+
+input {
     width: auto;
     padding: 10px 20px;
     margin-bottom: 20px;
@@ -77,7 +85,8 @@ input{
     border-radius: 5px;
     color: white;
 }
-.submit-button{
+
+.submit-button {
     padding: 10px 20px;
     background-color: red;
     color: white;
@@ -87,19 +96,24 @@ input{
     margin-top: 20px;
     border-radius: 5px;
 }
-.submit-button :hover{
+
+.submit-button:hover {
     color: white;
 }
-.counter-btn{
+
+.counter-btn {
+    text-decoration: none;
+    font-size: 3rem;
     color: white;
     padding: 20px 20px;
-    margin-top: 20px;
-    
+    border-radius: 5px;
+    margin-top: auto; /* Push it to the bottom */
 }
-.counter-btn a:hover{
+
+.counter-btn:hover {
     color: black;
-   
 }
+
 .reset-button {
     padding: 10px 20px;
     background-color: red;
@@ -110,6 +124,7 @@ input{
     margin-top: 20px;
     border-radius: 5px;
 }
-.reset-button:hover{
+
+.reset-button:hover {
     background-color: darkred;
 }

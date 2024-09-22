@@ -13,23 +13,6 @@ const db = new pg.Pool({
     port: 5433
 });
 
-const players = [
-    {
-        id: 1,
-        name: "alex musyoka",
-
-
-    },
-    {
-        id: 2,
-        name: "alfred musyoka",
-
-    },
-    {
-        id: 3,
-        name: "abby nzivu",
-    }
-]
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
