@@ -51,6 +51,7 @@ html, body {/* Ensure the body takes up the full height of the viewport */
 .form{
     align-items: center;
     
+    
 }
 
 .intro-text{
@@ -67,25 +68,48 @@ html, body {/* Ensure the body takes up the full height of the viewport */
 }
 input{
     width: auto;
-    padding: 10px;
+    padding: 10px 20px;
     margin-bottom: 20px;
+    margin-top: 20px;
     border: 1px solid #ddd;
     font-family: 'Mulish', sans-serif;
+    font-size: 20px;
     border-radius: 5px;
+    color: white;
 }
 .submit-button{
-    border-radius: 10px;
-    margin-left: 0;
-    color: black;
-    
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 .submit-button :hover{
     color: white;
 }
 .counter-btn{
     color: white;
+    padding: 20px 20px;
+    margin-top: 20px;
     
 }
 .counter-btn a:hover{
     color: black;
+   
+}
+.reset-button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.reset-button:hover{
+    background-color: darkred;
 }

@@ -36,16 +36,15 @@ app.use(express.static("public"));
 app.get("/", async(req,res) => {
     try {
         const result = await db.query("SELECT COUNT(*) AS present_count FROM players WHERE is_present = TRUE");
-        const count = result.rows[0].present_count;
-        console.log("Present Count:", count);
+        const count = result.rows[0].present_count || 0;
+        console.log("Present Count:" + count);
         res.render("index.ejs", {
             count: count
         })
     } catch (error) {
-        
+        console.error(error);
+        res.status(500).send("Error dispalying home page");
     }
-    res.render("index.ejs",{
-    });
 })
 db.query('SELECT 1', (err, res) => {
     if (err) {
@@ -66,7 +65,7 @@ app.post("/search", async (req,res) => {
         const result = await db.query("SELECT * FROM players WHERE TRIM(first_name) = $1 AND TRIM(last_name) = $2", [first_name,last_name]);
         if(result.rows.length > 0 ){
             await db.query("UPDATE players SET is_present = TRUE WHERE TRIM(first_name) = $1 AND TRIM(last_name) = $2", [first_name,last_name]);
-            res.send("Player marked as present");
+            res.redirect("/");
         }else{
             res.status(404).send("Player not found in register");
         }
@@ -87,6 +86,16 @@ app.get("/present", async (req,res) => {
         console.error(error);
         res.status(500).send("Error retriving present players");
         
+    }
+})
+
+app.post("/reset", async (req,res) => {
+    try {
+        await db.query("UPDATE players SET is_present = FALSE");
+        console.log("All Players have been reset.")
+        res.redirect("/");
+    } catch (error) {
+        res.status(500).send("Error resseting the attendance.")
     }
 })
 
