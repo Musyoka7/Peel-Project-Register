@@ -61,7 +61,9 @@ app.post("/search", async (req,res) => {
 })
 app.get("/present", async (req,res) => {
     try {
-        const result = await db.query("SELECT FROM players WHERE is_present = TRUE");
+        const result = await db.query("SELECT first_name, last_name FROM players WHERE is_present = TRUE");
+        console.log("Full Result:", result);
+        console.log(result.rows);
         res.render("present.ejs", {
             players: result.rows
         })
